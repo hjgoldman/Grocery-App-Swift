@@ -16,6 +16,7 @@
 		C61E40761E5F6D9600F77B4B /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = C61E40751E5F6D9600F77B4B /* Item.swift */; };
 		C61E407A1E5F72F100F77B4B /* AddCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C61E40791E5F72F100F77B4B /* AddCategoryViewController.swift */; };
 		C61E407F1E5F8D6A00F77B4B /* CategoryItemTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C61E407E1E5F8D6A00F77B4B /* CategoryItemTableViewController.swift */; };
+		C61E40811E5F991000F77B4B /* AddItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C61E40801E5F991000F77B4B /* AddItemViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +32,7 @@
 		C61E40751E5F6D9600F77B4B /* Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		C61E40791E5F72F100F77B4B /* AddCategoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddCategoryViewController.swift; sourceTree = "<group>"; };
 		C61E407E1E5F8D6A00F77B4B /* CategoryItemTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryItemTableViewController.swift; sourceTree = "<group>"; };
+		C61E40801E5F991000F77B4B /* AddItemViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddItemViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +100,7 @@
 			isa = PBXGroup;
 			children = (
 				C61E407E1E5F8D6A00F77B4B /* CategoryItemTableViewController.swift */,
+				C61E40801E5F991000F77B4B /* AddItemViewController.swift */,
 			);
 			name = CategoryItems;
 			sourceTree = "<group>";
@@ -179,6 +182,7 @@
 				C61E40761E5F6D9600F77B4B /* Item.swift in Sources */,
 				C61E407A1E5F72F100F77B4B /* AddCategoryViewController.swift in Sources */,
 				C61E40711E5F67D100F77B4B /* GroceryCategoriesTableViewController.swift in Sources */,
+				C61E40811E5F991000F77B4B /* AddItemViewController.swift in Sources */,
 				C61E405F1E5F677F00F77B4B /* AppDelegate.swift in Sources */,
 				C61E40741E5F6D8300F77B4B /* Category.swift in Sources */,
 			);

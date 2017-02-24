@@ -68,10 +68,7 @@ class GroceryCategoriesTableViewController: UITableViewController, AddNewCategor
             let categoryDetailVC: CategoryItemTableViewController = segue.destination as! CategoryItemTableViewController
             
             categoryDetailVC.category = groceryCategory
-            
-            
-            
-            
+
         }
     }
    

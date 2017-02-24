@@ -59,19 +59,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nGG-zn-5ic">
-                                <rect key="frame" x="87" y="199" width="200" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LZ7-wz-tru">
-                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="44" id="CYU-0R-MGL"/>
-                                    <constraint firstAttribute="width" constant="375" id="fkn-Gq-UmG"/>
-                                </constraints>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LZ7-wz-tru">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <items>
                                     <barButtonItem systemItem="save" id="LGM-9V-ZbZ">
                                         <connections>
@@ -85,14 +75,15 @@
                                     </barButtonItem>
                                 </items>
                             </toolbar>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nGG-zn-5ic">
+                                <rect key="frame" x="62" y="187" width="250" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="LZ7-wz-tru" firstAttribute="centerX" secondItem="xZo-CR-5RA" secondAttribute="centerX" id="0ij-b2-TY3"/>
-                            <constraint firstAttribute="trailing" secondItem="LZ7-wz-tru" secondAttribute="trailing" id="3Rf-jX-5Fo"/>
-                            <constraint firstItem="LZ7-wz-tru" firstAttribute="centerY" secondItem="xZo-CR-5RA" secondAttribute="centerY" constant="-291.5" id="C4L-Uz-7lh"/>
-                            <constraint firstItem="LZ7-wz-tru" firstAttribute="leading" secondItem="xZo-CR-5RA" secondAttribute="leading" id="R9G-0u-w4E"/>
-                        </constraints>
                     </view>
                     <connections>
                         <outlet property="categoryTextField" destination="nGG-zn-5ic" id="Dyx-In-1Sj"/>
@@ -102,6 +93,52 @@
             </objects>
             <point key="canvasLocation" x="1792.8" y="-850.52473763118451"/>
         </scene>
+        <!--Add Item View Controller-->
+        <scene sceneID="k5P-2L-jWz">
+            <objects>
+                <viewController id="EBt-PY-iEd" customClass="AddItemViewController" customModule="Grocery_App_Swift" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="RGX-7a-4Ve"/>
+                        <viewControllerLayoutGuide type="bottom" id="7OR-Cg-b0U"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ehV-P4-Fju">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="e0Z-AE-9Sj">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <items>
+                                    <barButtonItem systemItem="save" id="xdJ-Kd-X73">
+                                        <connections>
+                                            <action selector="saveButtonPressed" destination="EBt-PY-iEd" id="sok-pu-inI"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem systemItem="cancel" id="oaI-fB-kfm">
+                                        <connections>
+                                            <action selector="cancelButtonPressed" destination="EBt-PY-iEd" id="62M-5X-n5g"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dJ5-rL-vzr">
+                                <rect key="frame" x="62" y="187" width="250" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                    </view>
+                    <connections>
+                        <outlet property="itemTextField" destination="dJ5-rL-vzr" id="bHS-OO-0sc"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PSM-U1-oDC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3145" y="-838"/>
+        </scene>
         <!--Category Item Table View Controller-->
         <scene sceneID="VfT-aZ-6Yn">
             <objects>
@@ -110,6 +147,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <button key="tableFooterView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Ubu-Sd-YyY">
+                            <rect key="frame" x="0.0" y="72" width="375" height="44"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <state key="normal" title="Add"/>
+                            <connections>
+                                <segue destination="EBt-PY-iEd" kind="presentation" id="ZSG-q7-a2u"/>
+                            </connections>
+                        </button>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ItemCell" id="LP3-8X-ZjL">
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
@@ -125,6 +170,8 @@
                             <outlet property="delegate" destination="oJp-am-t23" id="wj2-Rx-EQ1"/>
                         </connections>
                     </tableView>
+                    <toolbarItems/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zXR-w6-xLH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

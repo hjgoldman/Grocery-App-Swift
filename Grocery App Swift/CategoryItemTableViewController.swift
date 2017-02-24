@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CategoryItemTableViewController: UITableViewController {
+class CategoryItemTableViewController: UITableViewController, AddNewItemDelegate {
     
     var selectedCategoryIndex :Int = 0
     var category = Category()
@@ -20,6 +20,22 @@ class CategoryItemTableViewController: UITableViewController {
     
     
     }
+    
+    func addNewItemnDidSave(categoryName :Item) {
+        
+        
+        category.groceryItems.append(categoryName)
+        
+        tableView.reloadData()
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?){
+        
+        let addItemVC: AddItemViewController = segue.destination as! AddItemViewController
+        addItemVC.delegate = self
+        
+    }
+    
 
  
 
