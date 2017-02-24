@@ -27,7 +27,7 @@ class AddCategoryViewController: UIViewController {
     
     @IBAction func saveButtonPressed() {
         
-        let category = Category()
+        let category = Category(coder:NSCoder())
         category.title = self.categoryTextField.text
         
         self.delegate.addNewCategoryDidSave(categoryName: category)

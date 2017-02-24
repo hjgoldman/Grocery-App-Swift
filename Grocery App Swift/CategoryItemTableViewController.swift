@@ -11,7 +11,7 @@ import UIKit
 class CategoryItemTableViewController: UITableViewController, AddNewItemDelegate {
     
     var selectedCategoryIndex :Int = 0
-    var category = Category()
+    var category = Category(coder:NSCoder())
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,7 +22,6 @@ class CategoryItemTableViewController: UITableViewController, AddNewItemDelegate
     }
     
     func addNewItemnDidSave(categoryName :Item) {
-        
         
         category.groceryItems.append(categoryName)
         

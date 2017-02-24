@@ -8,38 +8,37 @@
 
 import UIKit
 
-
 class GroceryCategoriesTableViewController: UITableViewController, AddNewCategoryDelegate {
     
     var groceryCategories = [Any]()
-
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         title = "Grocery List"
         
-        let category1 = Category()
+        let category1 = Category(coder:NSCoder())
         category1.title = "HEB"
         
-        let item1 = Item()
+        let item1 = Item(coder:NSCoder())
         item1.title = "Beer"
         
-        let item2 = Item()
+        let item2 = Item(coder:NSCoder())
         item2.title = "Chips"
         
         category1.groceryItems.append(item1)
         category1.groceryItems.append(item2)
 
         
-        let category2 = Category()
+        let category2 = Category(coder:NSCoder())
         category2.title = "WholeFoods"
-        let category3 = Category()
+        let category3 = Category(coder:NSCoder())
         category3.title = "CVS"
         
         groceryCategories.append(category1)
         groceryCategories.append(category2)
         groceryCategories.append(category3)
+        
 
     }
     
