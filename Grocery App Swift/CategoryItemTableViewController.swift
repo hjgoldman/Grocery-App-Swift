@@ -11,7 +11,7 @@ import UIKit
 class CategoryItemTableViewController: UITableViewController, AddNewItemDelegate {
     
     var selectedCategoryIndex :Int = 0
-    var category = Category(coder:NSCoder())
+    var category = Category()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,7 +46,7 @@ class CategoryItemTableViewController: UITableViewController, AddNewItemDelegate
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return category.groceryItems.count
+        return (category.groceryItems.count)
     }
 
     

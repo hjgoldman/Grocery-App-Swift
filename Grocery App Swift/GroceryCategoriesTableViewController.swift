@@ -10,41 +10,59 @@ import UIKit
 
 class GroceryCategoriesTableViewController: UITableViewController, AddNewCategoryDelegate {
     
-    var groceryCategories = [Any]()
+    var groceryCategories :Array<Any> = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         title = "Grocery List"
         
-        let category1 = Category(coder:NSCoder())
-        category1.title = "HEB"
+//        let category1 = Category()
+//        category1.title = "HEB"
+//        
+//        let item1 = Item()
+//        item1.title = "Beer"
+//        
+//        let item2 = Item()
+//        item2.title = "Chips"
+//        
+//        category1.groceryItems.append(item1)
+//        category1.groceryItems.append(item2)
+//
+//        
+//        let category2 = Category()
+//        category2.title = "WholeFoods"
+//        let category3 = Category()
+//        category3.title = "CVS"
+//        
+//        groceryCategories.append(category1)
+//        groceryCategories.append(category2)
+//        groceryCategories.append(category3)
         
-        let item1 = Item(coder:NSCoder())
-        item1.title = "Beer"
         
-        let item2 = Item(coder:NSCoder())
-        item2.title = "Chips"
-        
-        category1.groceryItems.append(item1)
-        category1.groceryItems.append(item2)
 
+       self.loadData()
         
-        let category2 = Category(coder:NSCoder())
-        category2.title = "WholeFoods"
-        let category3 = Category(coder:NSCoder())
-        category3.title = "CVS"
+    }
+    
+    func saveData() {
+        let data = NSKeyedArchiver.archivedData(withRootObject: self.groceryCategories) 
+        let defaults = UserDefaults.standard
+        defaults.set(data, forKey: "data")
+        defaults.synchronize()
         
-        groceryCategories.append(category1)
-        groceryCategories.append(category2)
-        groceryCategories.append(category3)
-        
-
+    }
+    
+    func loadData() {
+        let defaults = UserDefaults.standard
+        let data = defaults.value(forKey: "data") as! Data
+        let groceries = NSKeyedUnarchiver.unarchiveObject(with: data) as! Array<Any>
+        self.groceryCategories = groceries
     }
     
     func addNewCategoryDidSave(categoryName: Category) {
         groceryCategories.append(categoryName)
-        
+        self.saveData()
         tableView.reloadData()
     }
     

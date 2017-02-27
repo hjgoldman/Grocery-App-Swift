@@ -28,7 +28,7 @@ class AddItemViewController: UIViewController {
 
     @IBAction func saveButtonPressed() {
         
-        let item = Item(coder:NSCoder())
+        let item = Item()
         item.title = self.itemTextField.text!
         
         self.delegate.addNewItemnDidSave(categoryName: item)

@@ -8,18 +8,21 @@
 
 import UIKit
 
-class Category: NSObject {
+class Category: NSObject, NSCoding {
     
     var title :String?
-    var groceryItems = [Any]()
+    var groceryItems :Array<Any> = []
     
     func encode(with coder: NSCoder) {
         coder.encode(self.title, forKey: "title")
         coder.encode(self.groceryItems, forKey: "groceryItems")
+        
     }
-
-    required init(coder decoder: NSCoder) {
+    
+    required convenience init(coder decoder: NSCoder) {
+        self.init()
         self.title = decoder.decodeObject(forKey: "title") as! String?
         self.groceryItems = decoder.decodeObject(forKey: "groceryItems") as! [Any]
+        
     }
 }
