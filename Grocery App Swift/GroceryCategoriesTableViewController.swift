@@ -7,71 +7,79 @@
 //
 
 import UIKit
+import CoreData
 
 
-class GroceryCategoriesTableViewController: UITableViewController, AddNewCategoryDelegate {
+class GroceryCategoriesTableViewController: UITableViewController, NSFetchedResultsControllerDelegate, AddNewCategoryDelegate {
     
-    var groceryCategories :Array<Any> = []
-
+    var managedObjectContext :NSManagedObjectContext!
+    var groceryCategories :[GroceryCategory]!
+    
+    var fetchResultsController :NSFetchedResultsController<GroceryCategory>!
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+    
         title = "Grocery List"
         
-        let category1 = Category()
-        category1.title = "HEB"
+        let request = NSFetchRequest<GroceryCategory>(entityName: "GroceryCategory")
+        request.sortDescriptors = [NSSortDescriptor(key: "title", ascending: true)]
         
-        let item1 = Item()
-        item1.title = "Beer"
+        self.fetchResultsController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: self.managedObjectContext, sectionNameKeyPath: nil, cacheName: nil)
         
-        let item2 = Item()
-        item2.title = "Chips"
+        self.fetchResultsController.delegate = self
         
-        category1.groceryItems.append(item1)
-        category1.groceryItems.append(item2)
-
+        try! self.fetchResultsController.performFetch()
         
-        let category2 = Category()
-        category2.title = "WholeFoods"
-        let category3 = Category()
-        category3.title = "CVS"
+        self.navigationItem.rightBarButtonItem = self.editButtonItem
         
-        groceryCategories.append(category1)
-        groceryCategories.append(category2)
-        groceryCategories.append(category3)
-
+    }
+    //add category
+    func addNewCategoryDidSave(categoryName :String){
+        
+        let groceryCategory = GroceryCategory(context: self.managedObjectContext)
+        groceryCategory.title = categoryName
+        
+        try! self.managedObjectContext.save()
     }
     
-    func addNewCategoryDidSave(categoryName: Category) {
-        groceryCategories.append(categoryName)
+
+    //delete category
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         
-        tableView.reloadData()
+        if editingStyle == .delete {
+            // delete the record
+            
+            let groceryCategory = self.fetchResultsController.object(at: indexPath)
+            self.managedObjectContext.delete(groceryCategory)
+            try! self.managedObjectContext.save()
+        }
     }
     
+    
+    //edit table
+    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
+        
+        if type == .insert {
+            self.tableView.insertRows(at: [newIndexPath!], with: .automatic)
+        } else if type == .delete {
+            self.tableView.deleteRows(at: [indexPath!], with: .automatic)
+        }
+    }
+
+    //segue
     override func prepare(for segue: UIStoryboardSegue, sender: Any?){
         
-        
         if segue.identifier == "AddCategory" {
-            
             let addCategoryVC: AddCategoryViewController = segue.destination as! AddCategoryViewController
             addCategoryVC.delegate = self
-        
-        
         } else if segue.identifier == "ShowCategory" {
-            
-            
-            let indexPath: IndexPath = self.tableView.indexPathForSelectedRow!
-            
-            let groceryCategory = self.groceryCategories[indexPath.row] as! Category
-            
-            let categoryDetailVC: CategoryItemTableViewController = segue.destination as! CategoryItemTableViewController
-            
-            categoryDetailVC.category = groceryCategory
 
         }
     }
    
+    
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -79,19 +87,16 @@ class GroceryCategoriesTableViewController: UITableViewController, AddNewCategor
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return groceryCategories.count
+        guard let sections = self.fetchResultsController.sections else {
+            return 0
+        }
+        return sections[section].numberOfObjects
     }
 
-    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CategoryCell", for: indexPath)
-
-        // Configure the cell...
-        
-        let categoryName = groceryCategories[indexPath.row] as! Category
-        
-        cell.textLabel?.text = categoryName.title
-        
+        let groceryCategory = self.fetchResultsController.object(at: indexPath)
+        cell.textLabel?.text = groceryCategory.title
         return cell
     }
     
