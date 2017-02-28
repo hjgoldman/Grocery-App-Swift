@@ -11,7 +11,7 @@ import UIKit
 
 class GroceryCategoriesTableViewController: UITableViewController, AddNewCategoryDelegate {
     
-    var groceryCategories = [Any]()
+    var groceryCategories :Array<Any> = []
 
 
     override func viewDidLoad() {

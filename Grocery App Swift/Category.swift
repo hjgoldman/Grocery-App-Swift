@@ -11,7 +11,7 @@ import UIKit
 class Category: NSObject {
     
     var title :String?
-    var groceryItems = [Any]()
+    var groceryItems :Array<Any> = []
 
 
 }
