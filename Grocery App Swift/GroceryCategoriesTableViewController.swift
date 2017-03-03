@@ -13,7 +13,7 @@ import CoreData
 class GroceryCategoriesTableViewController: UITableViewController, NSFetchedResultsControllerDelegate, AddNewCategoryDelegate {
     
     var managedObjectContext :NSManagedObjectContext!
-    var groceryCategories :[GroceryCategory]!
+    var groceryCategories :GroceryCategory!
     
     var fetchResultsController :NSFetchedResultsController<GroceryCategory>!
     
@@ -44,30 +44,6 @@ class GroceryCategoriesTableViewController: UITableViewController, NSFetchedResu
         try! self.managedObjectContext.save()
     }
     
-
-    //delete category
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        
-        if editingStyle == .delete {
-            // delete the record
-            
-            let groceryCategory = self.fetchResultsController.object(at: indexPath)
-            self.managedObjectContext.delete(groceryCategory)
-            try! self.managedObjectContext.save()
-        }
-    }
-    
-    
-    //edit table
-    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
-        
-        if type == .insert {
-            self.tableView.insertRows(at: [newIndexPath!], with: .automatic)
-        } else if type == .delete {
-            self.tableView.deleteRows(at: [indexPath!], with: .automatic)
-        }
-    }
-
     //segue
     override func prepare(for segue: UIStoryboardSegue, sender: Any?){
         
@@ -75,7 +51,17 @@ class GroceryCategoriesTableViewController: UITableViewController, NSFetchedResu
             let addCategoryVC: AddCategoryViewController = segue.destination as! AddCategoryViewController
             addCategoryVC.delegate = self
         } else if segue.identifier == "ShowCategory" {
-
+            
+            guard let indexPath: IndexPath = self.tableView.indexPathForSelectedRow else {
+                fatalError("no selection made")
+            }
+            
+            let groceryCategory = self.fetchResultsController.object(at: indexPath)
+            
+            let categoryItemsTVC = segue.destination as! CategoryItemsTableViewController
+            categoryItemsTVC.managedObjectContext = self.managedObjectContext
+            
+            categoryItemsTVC.groceryCategory = groceryCategory
         }
     }
    
@@ -99,5 +85,28 @@ class GroceryCategoriesTableViewController: UITableViewController, NSFetchedResu
         cell.textLabel?.text = groceryCategory.title
         return cell
     }
+    
+    //edit table
+    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
+        
+        if type == .insert {
+            self.tableView.insertRows(at: [newIndexPath!], with: .automatic)
+        } else if type == .delete {
+            self.tableView.deleteRows(at: [indexPath!], with: .automatic)
+        }
+    }
+    
+    //delete category
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        
+        if editingStyle == .delete {
+            // delete the record
+            
+            let groceryCategory = self.fetchResultsController.object(at: indexPath)
+            self.managedObjectContext.delete(groceryCategory)
+            try! self.managedObjectContext.save()
+        }
+    }
+
     
 }

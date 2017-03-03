@@ -14,6 +14,8 @@
 		C61E40711E5F67D100F77B4B /* GroceryCategoriesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C61E40701E5F67D100F77B4B /* GroceryCategoriesTableViewController.swift */; };
 		C63C72FE1E6600CD006679E1 /* GroceryDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C63C72FC1E6600CD006679E1 /* GroceryDataModel.xcdatamodeld */; };
 		C63C73001E661832006679E1 /* AddCatetoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C63C72FF1E661832006679E1 /* AddCatetoryViewController.swift */; };
+		C63C73041E661FCB006679E1 /* CategoryItemsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C63C73031E661FCB006679E1 /* CategoryItemsTableViewController.swift */; };
+		C6A71A211E6894DC00348054 /* AddItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A71A201E6894DC00348054 /* AddItemViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,9 +26,11 @@
 		C61E40681E5F677F00F77B4B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C61E406A1E5F677F00F77B4B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C61E40701E5F67D100F77B4B /* GroceryCategoriesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroceryCategoriesTableViewController.swift; sourceTree = "<group>"; };
-		C61E40721E5F69DE00F77B4B /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground.playground; sourceTree = "<group>"; };
+		C61E40721E5F69DE00F77B4B /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; name = MyPlayground.playground; path = ../MyPlayground.playground; sourceTree = "<group>"; };
 		C63C72FD1E6600CD006679E1 /* GroceryDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = GroceryDataModel.xcdatamodel; sourceTree = "<group>"; };
 		C63C72FF1E661832006679E1 /* AddCatetoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddCatetoryViewController.swift; sourceTree = "<group>"; };
+		C63C73031E661FCB006679E1 /* CategoryItemsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryItemsTableViewController.swift; sourceTree = "<group>"; };
+		C6A71A201E6894DC00348054 /* AddItemViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddItemViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,7 +47,6 @@
 		C61E40521E5F677F00F77B4B = {
 			isa = PBXGroup;
 			children = (
-				C61E40721E5F69DE00F77B4B /* MyPlayground.playground */,
 				C61E405D1E5F677F00F77B4B /* Grocery App Swift */,
 				C61E405C1E5F677F00F77B4B /* Products */,
 			);
@@ -60,6 +63,7 @@
 		C61E405D1E5F677F00F77B4B /* Grocery App Swift */ = {
 			isa = PBXGroup;
 			children = (
+				C61E40721E5F69DE00F77B4B /* MyPlayground.playground */,
 				C61E40781E5F71E200F77B4B /* GroceryCategories */,
 				C61E407D1E5F8CED00F77B4B /* CategoryItems */,
 				C61E405E1E5F677F00F77B4B /* AppDelegate.swift */,
@@ -84,6 +88,8 @@
 		C61E407D1E5F8CED00F77B4B /* CategoryItems */ = {
 			isa = PBXGroup;
 			children = (
+				C63C73031E661FCB006679E1 /* CategoryItemsTableViewController.swift */,
+				C6A71A201E6894DC00348054 /* AddItemViewController.swift */,
 			);
 			name = CategoryItems;
 			sourceTree = "<group>";
@@ -161,10 +167,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C63C73041E661FCB006679E1 /* CategoryItemsTableViewController.swift in Sources */,
 				C61E40711E5F67D100F77B4B /* GroceryCategoriesTableViewController.swift in Sources */,
 				C63C73001E661832006679E1 /* AddCatetoryViewController.swift in Sources */,
 				C61E405F1E5F677F00F77B4B /* AppDelegate.swift in Sources */,
 				C63C72FE1E6600CD006679E1 /* GroceryDataModel.xcdatamodeld in Sources */,
+				C6A71A211E6894DC00348054 /* AddItemViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

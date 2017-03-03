@@ -22,9 +22,12 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="hAa-Zn-V6N" id="LXa-GI-tB4">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="oJp-am-t23" kind="show" identifier="ShowCategory" id="MI5-73-Bcv"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -109,12 +112,12 @@
                                 <items>
                                     <barButtonItem systemItem="save" id="xdJ-Kd-X73">
                                         <connections>
-                                            <action selector="saveButtonPressed" destination="EBt-PY-iEd" id="sok-pu-inI"/>
+                                            <action selector="saveButtonPressed" destination="EBt-PY-iEd" id="5vW-LL-qne"/>
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem systemItem="cancel" id="oaI-fB-kfm">
                                         <connections>
-                                            <action selector="cancelButtonPressed" destination="EBt-PY-iEd" id="62M-5X-n5g"/>
+                                            <action selector="cancelButtonPressed" destination="EBt-PY-iEd" id="qhg-HM-9tg"/>
                                         </connections>
                                     </barButtonItem>
                                 </items>
@@ -130,17 +133,17 @@
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                     </view>
                     <connections>
-                        <outlet property="itemTextField" destination="dJ5-rL-vzr" id="bHS-OO-0sc"/>
+                        <outlet property="itemTextField" destination="dJ5-rL-vzr" id="AeU-ea-7n0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PSM-U1-oDC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3145" y="-838"/>
         </scene>
-        <!--Category Item Table View Controller-->
+        <!--Category Items Table View Controller-->
         <scene sceneID="VfT-aZ-6Yn">
             <objects>
-                <tableViewController id="oJp-am-t23" customClass="CategoryItemTableViewController" customModule="Grocery_App_Swift" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="oJp-am-t23" customClass="CategoryItemsTableViewController" customModule="Grocery_App_Swift" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="pOE-ST-KqQ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -150,7 +153,7 @@
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <state key="normal" title="Add"/>
                             <connections>
-                                <segue destination="EBt-PY-iEd" kind="presentation" id="ZSG-q7-a2u"/>
+                                <segue destination="EBt-PY-iEd" kind="presentation" identifier="AddItem" id="W0h-RG-U81"/>
                             </connections>
                         </button>
                         <prototypes>
@@ -158,7 +161,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="LP3-8X-ZjL" id="VSY-Qy-au0">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>

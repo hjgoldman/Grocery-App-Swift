@@ -18,6 +18,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
+        
+        //setting up DB
         self.persistentStoreContainer = NSPersistentContainer(name: "GroceryDataModel")
         self.persistentStoreContainer.loadPersistentStores { (description, error) in
             print(description)
@@ -33,6 +35,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         groceryCategoriesTVC.managedObjectContext = self.persistentStoreContainer.viewContext
         
+        
+        //editing appearance
+        
+        let navigationBarAppearace = UINavigationBar.appearance()
+        let toolBarAppearace = UIToolbar.appearance()
+        
+        navigationBarAppearace.tintColor = UIColor.white
+        navigationBarAppearace.barTintColor = UIColor (colorLiteralRed: 0.5373, green: 0.6824, blue: 0.8824, alpha: 1.0)
+        toolBarAppearace.backgroundColor = UIColor (colorLiteralRed: 0.5373, green: 0.6824, blue: 0.8824, alpha: 1.0)
         
         return true
     }
