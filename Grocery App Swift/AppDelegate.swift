@@ -7,15 +7,44 @@
 //
 
 import UIKit
+import CoreData
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
+    var persistentStoreContainer :NSPersistentContainer!
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        
+        
+        //setting up DB
+        self.persistentStoreContainer = NSPersistentContainer(name: "GroceryDataModel")
+        self.persistentStoreContainer.loadPersistentStores { (description, error) in
+            print(description)
+        }
+        
+        guard let navCongroller = self.window?.rootViewController as? UINavigationController else {
+            fatalError("UINavigationController not found!")
+        }
+        
+        guard let groceryCategoriesTVC = navCongroller.viewControllers.first as? GroceryCategoriesTableViewController else {
+            fatalError("GroceryCategoriesTableViewController not found!")
+        }
+        
+        groceryCategoriesTVC.managedObjectContext = self.persistentStoreContainer.viewContext
+        
+        
+        //editing appearance
+        
+        let navigationBarAppearace = UINavigationBar.appearance()
+        let toolBarAppearace = UIToolbar.appearance()
+        
+        navigationBarAppearace.tintColor = UIColor.white
+        navigationBarAppearace.barTintColor = UIColor (colorLiteralRed: 0.5373, green: 0.6824, blue: 0.8824, alpha: 1.0)
+        toolBarAppearace.backgroundColor = UIColor (colorLiteralRed: 0.5373, green: 0.6824, blue: 0.8824, alpha: 1.0)
+        
         return true
     }
 

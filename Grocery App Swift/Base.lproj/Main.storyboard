@@ -26,7 +26,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="oJp-am-t23" kind="show" identifier="ShowCategory" id="eFC-Zu-9ON"/>
+                                    <segue destination="oJp-am-t23" kind="show" identifier="ShowCategory" id="MI5-73-Bcv"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -38,7 +38,8 @@
                     <navigationItem key="navigationItem" id="Xgg-zA-CML">
                         <barButtonItem key="leftBarButtonItem" systemItem="add" id="0Fj-0W-Q3R">
                             <connections>
-                                <segue destination="JYn-qr-voz" kind="presentation" identifier="AddCategory" id="437-ib-hz9"/>
+                                <action selector="addNewGroceryCategory" destination="zbk-AN-N85" id="ZQP-gb-198"/>
+                                <segue destination="JYn-qr-voz" kind="presentation" identifier="AddCategory" id="UTF-B6-0tt"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -65,12 +66,12 @@
                                 <items>
                                     <barButtonItem systemItem="save" id="LGM-9V-ZbZ">
                                         <connections>
-                                            <action selector="saveButtonPressed" destination="JYn-qr-voz" id="Ccn-wP-ggA"/>
+                                            <action selector="saveButtonPressed" destination="JYn-qr-voz" id="QNm-bB-OaH"/>
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem systemItem="cancel" id="3P2-NL-Rrx">
                                         <connections>
-                                            <action selector="cancelButtonPressed" destination="JYn-qr-voz" id="eDx-Cg-stU"/>
+                                            <action selector="cancelButtonPressed" destination="JYn-qr-voz" id="wN5-8L-Ho8"/>
                                         </connections>
                                     </barButtonItem>
                                 </items>
@@ -86,7 +87,7 @@
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                     </view>
                     <connections>
-                        <outlet property="categoryTextField" destination="nGG-zn-5ic" id="Dyx-In-1Sj"/>
+                        <outlet property="categoryTextField" destination="nGG-zn-5ic" id="xHn-74-v4l"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4aj-Tq-UeO" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -111,12 +112,12 @@
                                 <items>
                                     <barButtonItem systemItem="save" id="xdJ-Kd-X73">
                                         <connections>
-                                            <action selector="saveButtonPressed" destination="EBt-PY-iEd" id="sok-pu-inI"/>
+                                            <action selector="saveButtonPressed" destination="EBt-PY-iEd" id="5vW-LL-qne"/>
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem systemItem="cancel" id="oaI-fB-kfm">
                                         <connections>
-                                            <action selector="cancelButtonPressed" destination="EBt-PY-iEd" id="62M-5X-n5g"/>
+                                            <action selector="cancelButtonPressed" destination="EBt-PY-iEd" id="qhg-HM-9tg"/>
                                         </connections>
                                     </barButtonItem>
                                 </items>
@@ -132,17 +133,17 @@
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                     </view>
                     <connections>
-                        <outlet property="itemTextField" destination="dJ5-rL-vzr" id="bHS-OO-0sc"/>
+                        <outlet property="itemTextField" destination="dJ5-rL-vzr" id="AeU-ea-7n0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PSM-U1-oDC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3145" y="-838"/>
         </scene>
-        <!--Category Item Table View Controller-->
+        <!--Category Items Table View Controller-->
         <scene sceneID="VfT-aZ-6Yn">
             <objects>
-                <tableViewController id="oJp-am-t23" customClass="CategoryItemTableViewController" customModule="Grocery_App_Swift" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="oJp-am-t23" customClass="CategoryItemsTableViewController" customModule="Grocery_App_Swift" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="pOE-ST-KqQ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -152,7 +153,7 @@
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <state key="normal" title="Add"/>
                             <connections>
-                                <segue destination="EBt-PY-iEd" kind="presentation" id="ZSG-q7-a2u"/>
+                                <segue destination="EBt-PY-iEd" kind="presentation" identifier="AddItem" id="W0h-RG-U81"/>
                             </connections>
                         </button>
                         <prototypes>
