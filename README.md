@@ -1,6 +1,6 @@
 # Grocery App Swift
 
-Grocery App is a grocery list app written in Swift. In Groceries App, you can add different stores that you need to buy groceries from and within the store categories you can also add the specific items needed. 
+Grocery App is a grocery list app written in Swift. In Grocery App, you can add different stores that you need to buy groceries from and within the store categories you can also add the specific items needed. 
 
 Grocery categories and items are saved locally on the device using CoreData.
 
